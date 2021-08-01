@@ -29,41 +29,6 @@ export const Content = styled.div`
       font-weight: 300;
     }
 
-    input {
-      background: #f1f1f1;
-      border-radius: 5px;
-      border: 2px solid #f1f1f1;
-      padding: 16px;
-      width: 100%;
-      box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-      color: #4946fa;
-      ::placeholder {
-        color: rgba(73, 70, 250, 0.64);
-        opacity: 1; /* Firefox */
-      }
-
-      & + input {
-        margin-top: 16px;
-      }
-    }
-
-    button {
-      background: #4946fa;
-      height: 56px;
-      border-radius: 5px;
-      border: 0;
-      padding: 0 16px;
-      color: #fff;
-      width: 100%;
-      font-weight: 500;
-      margin-top: 16px;
-      transition: background-color 0.6s;
-
-      &:hover {
-        background-color: ${shade(0.2, '#4946fa')};
-      }
-    }
-
     a {
       color: #4946fa;
       display: block;
@@ -74,32 +39,6 @@ export const Content = styled.div`
         color: ${shade(0.2, '#4946fa')};
         transform: translateX(5px);
       }
-    }
-  }
-
-  > button {
-    color: #6c6c6c;
-    display: block;
-    width: 340px;
-    text-decoration: none;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-top: 16px;
-    text-decoration: none;
-    background: none;
-    height: 56px;
-    border-radius: 5px;
-    border: 2px solid #d6d6d6;
-    padding: 0 16px;
-    transition: background-color 0.6s;
-
-    svg {
-      margin-right: 16px;
-    }
-    &:hover {
-      background-color: ${shade(0, '#d6d6d6')};
     }
   }
 `
