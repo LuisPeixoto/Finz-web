@@ -39,7 +39,7 @@ export const Content = styled.div`
     transition: transform 0.6s, color 0.6s;
     text-decoration: none;
     &:hover {
-      color: ${shade(0.2, '#4946fa')};
+      color: ${shade(0.4, '#4946fa')};
       transform: translateX(-5px);
     }
 
