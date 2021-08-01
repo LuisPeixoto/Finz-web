@@ -17,6 +17,8 @@ module.exports = {
     camelcase: 'off',
     'react/jsx-one-expression-per-line': 'off',
     'prettier/prettier': 'error',
+    'no-undef': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'no-use-before-define': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
