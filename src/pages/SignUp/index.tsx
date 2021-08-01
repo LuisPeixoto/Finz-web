@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Container, Content, Background } from './styles'
 import logoSVG from '../../assets/logo.svg'
 import { Form } from '@unform/web'
+import * as Yup from 'yup'
 import {
   FiArrowLeft,
   FiUser,
@@ -16,9 +17,24 @@ import Input from '../../components/Input'
 import MainButton from '../../components/Button/mainButton'
 
 const SignUp: React.FC = () => {
-  function handleSubmit(data: object): void {
-    console.log(data)
-  }
+  const handleSubmit = useCallback(async (data: object) => {
+    try {
+      const schema = Yup.object().shape({
+        name: Yup.string().required('Nome obrigatório'),
+        email: Yup.string().required('Nome obrigatório').email(),
+        career: Yup.string().required('Profissão obrigatório'),
+        city: Yup.string().required('Cidade obrigatório'),
+        birth: Yup.date().required('Data de nascimeto obrigatório'),
+        password: Yup.string().min(8, 'No mínimo 8 caracteres'),
+      })
+
+      await schema.validate(data, {
+        abortEarly: false,
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
 
   return (
     <>
@@ -34,7 +50,7 @@ const SignUp: React.FC = () => {
               icon={FiCalendar}
               placeholder="Data de nascimento"
             />
-            <Input name="work" icon={FiBriefcase} placeholder="Profissão" />
+            <Input name="career" icon={FiBriefcase} placeholder="Profissão" />
             <Input name="city" icon={FiMapPin} placeholder="Cidade" />
             <Input
               name="password"
