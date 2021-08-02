@@ -20,6 +20,7 @@ module.exports = {
     'no-undef': 'off',
     'react/jsx-props-no-spreading': 'off',
     'no-use-before-define': 'off',
+    'no-unused-expressions': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
