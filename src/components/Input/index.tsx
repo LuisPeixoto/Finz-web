@@ -53,7 +53,7 @@ const Input: React.FunctionComponent<InputProps> = ({
         {...props}
       />
       {error && (
-        <Error>
+        <Error title={error}>
           <FiAlertCircle size={20} />
         </Error>
       )}
