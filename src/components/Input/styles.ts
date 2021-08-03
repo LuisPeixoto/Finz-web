@@ -45,16 +45,28 @@ export const Container = styled.div<ContainerProps>`
       color: #4946fa;
     `}
 
-  ${(props) =>
-    props.isFilled &&
-    css`
-      color: #4946fa;
-    `}
+
+
+
+
 
   input {
     flex: 1;
-    background: transparent;
+
     color: #4946fa;
+
+    background: transparent;
+    ${(props) =>
+      props.isErrored &&
+      css`
+        color: #c53030;
+      `}
+
+    ${(props) =>
+      (!props.isErrored || props.isFocused) &&
+      css`
+        color: #4946fa;
+      `}
     border: none;
 
     &::placeholder {
@@ -71,6 +83,7 @@ export const Container = styled.div<ContainerProps>`
         `
       color:rgba(73, 70, 250, 0.64);
       opacity: 1; /* Firefox */
+
 
       `}
     }
