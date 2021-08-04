@@ -6,7 +6,7 @@ import { Form } from '@unform/web'
 import { FormHandles } from '@unform/core'
 import * as Yup from 'yup'
 
-import { useAuth } from '../../context/AuthContext'
+import { useAuth } from '../../hooks/AuthContext'
 import Input from '../../components/Input'
 import MainButton from '../../components/Button/mainButton'
 import SecondaryButton from '../../components/Button/secondaryButton'
