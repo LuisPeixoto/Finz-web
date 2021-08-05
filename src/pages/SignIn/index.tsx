@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react'
-import { Container, Content, Background } from './styles'
+import { Container, Content, Background, AnimationContainer } from './styles'
 import logoSVG from '../../assets/logo.svg'
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi'
 import { Form } from '@unform/web'
@@ -12,6 +12,8 @@ import Input from '../../components/Input'
 import MainButton from '../../components/Button/mainButton'
 import SecondaryButton from '../../components/Button/secondaryButton'
 import getValidationErrors from '../../utils/getValidatonErrors'
+import { Link } from 'react-router-dom'
+import singInVector from '../../assets/sign-in-vector.svg'
 
 interface SignInFormData {
   email: string
@@ -44,6 +46,8 @@ const SignIn: React.FC = () => {
       } catch (error) {
         const errors = getValidationErrors(error)
         formRef.current?.setErrors(errors)
+
+        return
       }
       addToast({
         type: 'success',
@@ -56,22 +60,28 @@ const SignIn: React.FC = () => {
   return (
     <>
       <Container>
-        <Background />
+        <Background>
+          <img width="60%" src={singInVector} />
+        </Background>
         <Content>
-          <img src={logoSVG} width="200px" alt="Finz" />
-          <Form ref={formRef} onSubmit={handleSubmit}>
-            <h1>Mantenha-se conectado</h1>
-            <Input name="email" icon={FiMail} placeholder="Email" />
-            <Input
-              name="password"
-              icon={FiLock}
-              type="password"
-              placeholder="Senha"
-            />
-            <MainButton type="submit">Entrar</MainButton>
-            <a href="#">Esqueci a minha senha</a>
-          </Form>
-          <SecondaryButton icon={FiLogIn}>Criar conta</SecondaryButton>
+          <AnimationContainer>
+            <img src={logoSVG} width="200px" alt="Finz" />
+            <Form ref={formRef} onSubmit={handleSubmit}>
+              <h1>Mantenha-se conectado</h1>
+              <Input name="email" icon={FiMail} placeholder="Email" />
+              <Input
+                name="password"
+                icon={FiLock}
+                type="password"
+                placeholder="Senha"
+              />
+              <MainButton type="submit">Entrar</MainButton>
+              <a href="#">Esqueci a minha senha</a>
+            </Form>
+            <Link to="/signup">
+              <SecondaryButton icon={FiLogIn}>Criar conta</SecondaryButton>
+            </Link>
+          </AnimationContainer>
         </Content>
       </Container>
     </>

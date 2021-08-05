@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-import singInVector from '../../assets/sign-in-vector.svg'
+import styled, { keyframes } from 'styled-components'
 import { shade } from 'polished'
 
 export const Container = styled.div`
@@ -8,15 +7,34 @@ export const Container = styled.div`
   align-items: stretch;
 `
 export const Content = styled.div`
-  display: flex;
-  background-color: #fff;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
   width: 100%;
   max-width: 700px;
   -webkit-box-shadow: -9px 0px 9px -3px rgba(0, 0, 0, 0.25);
   box-shadow: -9px 0px 9px -3px rgba(0, 0, 0, 0.25);
+`
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`
+
+export const AnimationContainer = styled.div`
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  animation: ${appearFromRight} 1s;
 
   form {
     margin: 40px 0 16px 0;
@@ -42,9 +60,25 @@ export const Content = styled.div`
     }
   }
 `
+const appearFromBackgroundLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`
+
 export const Background = styled.div`
   flex: 1;
-  background: url(${singInVector}) no-repeat center,
-    linear-gradient(180deg, #4845f7 0%, #3331ae 100%);
-  background-size: 60%;
+  background: linear-gradient(180deg, #4845f7 0%, #3331ae 100%);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  img {
+    animation: ${appearFromBackgroundLeft} 1s;
+  }
 `
