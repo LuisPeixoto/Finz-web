@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   align-items: stretch;
 `
+
 export const Content = styled.div`
   align-items: center;
   flex-direction: column;
@@ -17,7 +18,6 @@ export const Content = styled.div`
   -webkit-box-shadow: -9px 0px 9px -3px rgba(0, 0, 0, 0.25);
   box-shadow: -9px 0px 9px -3px rgba(0, 0, 0, 0.25);
 `
-
 const appearFromRight = keyframes`
   from {
     opacity: 0;
@@ -28,7 +28,6 @@ const appearFromRight = keyframes`
     transform: translateX(0);
   }
 `
-
 export const AnimationContainer = styled.div`
   align-items: center;
   flex-direction: column;
