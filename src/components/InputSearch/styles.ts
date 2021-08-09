@@ -4,16 +4,15 @@ import Tooltip from '../Tooltip'
 interface ContainerProps {
   isFocused: boolean
   isFilled: boolean
-  isErrored: boolean
 }
 
 export const Container = styled.div<ContainerProps>`
-  background: #f1f1f1;
+  background: #6260ff;
   border-radius: 5px;
+  height: 46px;
 
-  border: 2px solid #f1f1f1;
-  color: rgba(73, 70, 250, 0.64);
-
+  border: 2px solid #6260ff;
+  color: #ffffffb0;
   padding: 16px;
   width: 100%;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
@@ -26,57 +25,39 @@ export const Container = styled.div<ContainerProps>`
   }
 
   ${(props) =>
-    props.isErrored &&
-    css`
-      border: 2px solid #c53030;
-      box-shadow: 0px 0px 4px #c53030;
-      color: #c53030;
-      ::placeholder {
-        color: #c53030;
-      }
-    `}
-
-  ${(props) =>
     props.isFocused &&
     css`
-      border: 2px solid #4946fa;
-      box-shadow: 0px 0px 4px #4946fa;
+      box-shadow: 0px 1px 6px rgb(255, 255, 255, 0.32);
 
-      color: #4946fa;
+      color: #fff;
     `}
 
   input {
     flex: 1;
+    font-family: 'Ubuntu';
+    font-weight: 500;
 
-    color: #4946fa;
+    color: #fff;
 
     background: transparent;
-    ${(props) =>
-      props.isErrored &&
-      css`
-        color: #c53030;
-      `}
+
+    &::placeholder {
+      color: #ffffffb0;
+      opacity: 1; /* Firefox */
+    }
 
     ${(props) =>
-      (!props.isErrored || props.isFocused) &&
+      props.isFocused &&
       css`
-        color: #4946fa;
+        color: #fff;
       `}
     border: none;
 
     &::placeholder {
       ${(props) =>
-        props.isErrored &&
+        props.isFocused &&
         `
-      color: #c53030;
-      opacity: 1; /* Firefox */
-
-      `}
-
-      ${(props) =>
-        (!props.isErrored || props.isFocused) &&
-        `
-      color:rgba(73, 70, 250, 0.64);
+      color:#fff;
       opacity: 1; /* Firefox */
 
 
