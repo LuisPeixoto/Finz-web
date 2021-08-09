@@ -59,7 +59,7 @@ export const AnimationContainer = styled.div`
     }
   }
 `
-const appearFromBackgroundLeft = keyframes`
+const appearFromLeft = keyframes`
   from {
     opacity: 0;
     transform: translateX(-50px);
@@ -78,6 +78,6 @@ export const Background = styled.div`
   justify-content: center;
 
   img {
-    animation: ${appearFromBackgroundLeft} 1s;
+    animation: ${appearFromLeft} 1s;
   }
 `
